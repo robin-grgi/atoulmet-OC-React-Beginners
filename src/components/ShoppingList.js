@@ -5,16 +5,13 @@ function ShoppingList() {
 		<div>
 			<ul>
 				{
-					plantList.map((plant) => (plant.category)).reduce((accumulator, currentValue) => {
-						if (accumulator.includes(currentValue)) {
-							return accumulator
-						} else {
-							return [...accumulator, currentValue]
-						}
-					}
-						, []).map((category) => (
-							<li key={category}>{category}</li>
-						))
+					plantList.reduce(
+						(acc, plant) =>
+							acc.includes(plant.category) ? acc : acc.concat(plant.category),
+						[]
+					).map((cat) => (
+						<li key={cat}>{cat}</li>
+					))
 				}
 			</ul>
 
