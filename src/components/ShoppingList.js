@@ -19,6 +19,8 @@ function ShoppingList() {
 				{plantList.map((plant) => (
 					<li key={plant.id}>{plant.name} ({plant.category})</li>
 				))}
+				<CareScale careType="water" scaleValue={plant.water} />
+				<CareScale careType="light" scaleValue={plant.light} />
 			</ul>
 		</div>
 	)
